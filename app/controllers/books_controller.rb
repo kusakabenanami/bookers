@@ -1,4 +1,4 @@
 class BooksController < ApplicationController
-  def top
+  def index
   end
 end
