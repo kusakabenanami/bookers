@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :lists
   resources :books
   get 'homes/top'
   root to: 'homes#top'

@@ -7,11 +7,24 @@ class BooksController < ApplicationController
   end
 
   def create
-    # １.&2. データを受け取り新規登録するためのインスタンス作成
-    list = book.new(list_params)
-    # 3. データをデータベースに保存するためのsaveメソッド実行
-    list.save
-    # 4. トップ画面へリダイレクト
-    redirect_to '/top'
+    @book = Book.new(list_params)
+    if @book.save
+      redirect_to book_path(@list.id)
+    else
+      @books = Book.all
+      render :index
+    end
+  end
+
+  def destroy
+    book = Book.find(params[:id])  # データ（レコード）を1件取得
+    book.destroy  # データ（レコード）を削除
+    redirect_to book_path(list)  # 投稿一覧画面へリダイレクト
+  end
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 end
