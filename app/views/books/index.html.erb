@@ -106,16 +106,22 @@
 
   <h2>New Book</h2>
   <!--入力フォーマット-->
-  <form>
+  <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" mesot="post">
     <div class="field">
-      <label for="title">Title</label>
+      <label for="book_title">Title</label>
+      <br>
       <input>
+      <br>
     </div>
     <div class="field">
-      <label for="body">Body</label>
-      <textarea></textarea>
+      <label for="book_body">Body</label>
+      <br>
+      <textarea class="book_body" name="book[body]" id="book_body"></textarea>
     </div>
+      <br>
   </form>
 
   <!--投稿ボタン-->
+  <div class="actions">
   <input type="submit" value="Create Book">
+  </div>
