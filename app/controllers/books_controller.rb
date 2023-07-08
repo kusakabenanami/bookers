@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   def index
+    @book = Book.new
+    @books = Book.all
   end
 
   def show
@@ -7,13 +9,12 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(list_params)
-    if @book.save
-      redirect_to book_path(@list.id)
-    else
-      @books = Book.all
-      render :index
-    end
+    # １.&2. データを受け取り新規登録するためのインスタンス作成
+    book= Book.new(book_params)
+    # 3. データをデータベースに保存するためのsaveメソッド実行
+    book.save
+    # 4. リダイレクト
+    redirect_to book_path(book.id)
   end
 
   def destroy

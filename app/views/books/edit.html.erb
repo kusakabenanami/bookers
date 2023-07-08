@@ -1,0 +1,18 @@
+<h1>Editing Book</h1>
+<%= form_with model: @book do |f| %>
+  <label for="book_title">Title</label>
+  <br>
+  <input class="book_title" type="text" value="リーダブルコード" name="book[title]" id="book_title">
+  </br>
+  <label for="book_body">Body</label>
+  <br>
+  <textarea class="book_title" type="text" value="リーダブルコード" name="book[title]" id="book_title">より良いコードを書くためのシンプルで実践的なテクニック</textarea>
+  </br>
+  <div class="actions">
+    <%= f.submit 'Update Book' %>
+  </div>
+  <a class="show_1" href="/books/1">Show</a>
+  |
+  <a class="show_1" href="/books">Back</a>
+
+<% end %>
